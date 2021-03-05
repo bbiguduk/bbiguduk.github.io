@@ -99,7 +99,7 @@ author:
   avatar           : "/assets/avatar.jpg"
   bio              : "iOS/Android developer 📱"
   location         : "Korea"
-  email            : "bbiguduk@gmail.com"
+  email            : #"bbiguduk@gmail.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
