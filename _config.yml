@@ -99,11 +99,11 @@ author:
   avatar           : "/assets/avatar.jpg"
   bio              : "iOS/Android developer 📱"
   location         : "Korea"
-  email            : #"bbiguduk@gmail.com"
+  email            : "bbiguduk@gmail.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      url: "bbiguduk@email.com"
+      url: # "bbiguduk@email.com"
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
