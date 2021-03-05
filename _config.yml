@@ -96,7 +96,7 @@ analytics:
 # Site Author
 author:
   name             : "Boram Jeong"
-  avatar           : "/assets/images/avarta.jpg"
+  avatar           : "/assets/avatar.jpg"
   bio              : "iOS/Android developer 📱"
   location         : "Korea"
   email            : "bbiguduk@gmail.com"
