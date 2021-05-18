@@ -48,10 +48,10 @@ MAC 기준으로 작성하였습니다.
 
 터미널에서 명령어를 쳐보면 여러가지 기능을 사용할 수 있습니다.
 
-[git 명령어](/images/terminal_git.png)
+<center><img src="/images/terminal_git.png" width="50%" height="50%"></center>
 
 ## GitHub
 
-[GitHub 로고](/images/GitHub_logo.png)
+<center><img src="/images/GitHub_logo.png" width="50%" height="50%"></center>
 
 GitHub는 Git을 사용한 소프트웨어 개발 및 버전 관리를위한 인터넷 호스팅 제공 업체입니다. Git의 분산 버전 제어 및 소스 코드 관리 (SCM) 기능과 자체 기능을 제공합니다. 모든 프로젝트에 대한 액세스 제어 및 버그 추적, 기능 요청, 작업 관리, 지속적인 통합 및 Wiki와 같은 여러 협업 기능을 제공합니다.
