@@ -13,7 +13,7 @@ tags:
 
 Xcode 내에 기본적으로 Documentation 주석을 달 수 있는 단축키 (```option(⌥) + command(⌘) + /```)가 존재합니다 (아래 그림 참조).
 
-![Xcode comment shortcut](./images/Xcode_comment_documentation.png)
+![Xcode comment shortcut](/images/Xcode_comment_documentation.png)
 
 단축키를 이용하여 주석을 달 경우 한 줄 Documentation 주석 (```///```)이 달리게 됩니다.
 
