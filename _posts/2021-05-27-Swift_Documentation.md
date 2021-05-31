@@ -1,4 +1,11 @@
-# Swift Documentation 검토
+---
+title: "Swift Documentation"
+categories:
+  - Documentation
+tags:
+  - Swift
+  - Documentation
+---
 
 업무를 진행하면서 개발에 집중 뿐만 아니라 추후 문서 작업까지 한번에 해결하기 위해 Documentation 작업 제안. 검토된 내용에 대해 기술하였습니다. 
 
@@ -6,7 +13,7 @@
 
 Xcode 내에 기본적으로 Documentation 주석을 달 수 있는 단축키 (```option(⌥) + command(⌘) + /```)가 존재합니다 (아래 그림 참조).
 
-![Xcode comment shortcut](./Xcode_comment_documentation.png)
+![Xcode comment shortcut](.images/Xcode_comment_documentation.png)
 
 단축키를 이용하여 주석을 달 경우 한 줄 Documentation 주석 (```///```)이 달리게 됩니다.
 
@@ -93,7 +100,62 @@ $ [sudo] gem install jazzy
 
 #### 사용법
 
+기본적으로 ```jazzy``` 명령어로 쉽게 문서를 만들 수 있습니다. 하지만 이 명령어로 문서를 생성할 경우 ```open``` 과 ```public``` 에 대한 것만 생성이 됩니다. 여러가지 옵션을 추가하는 것이 가능하며 아래에 설명되어 있습니다.
 
+- ```internal```, ```fileprivate```, ```private``` 문서화 추가
+  ```
+  --min-acl [internal | fileprivate | private]
+  ```
+- 기존에 생성한 문서를 지우고 새로운 문서를 생성
+  ```
+  --clean
+  ```
+- 작성자 지정
+  ```
+  --author Boram
+  ```
+- 테마지정
+  ```
+  --theme [apple | fullwidth | jony]
+  ```
+> 테마명
+>
+> ```apple```: [--theme apple](https://realm.io/docs/swift/latest/api/)
+>
+> ```fullwidth```: [--theme fullwidth](https://reduxkit.github.io/ReduxKit/)
+> 
+> ```jony```: [--theme jony](https://harshilshah.github.io/IGListKit/)
 
-## Documentation Rules
+#### Example
+- Swift
+  ```
+  jazzy \
+    --clean \
+    --author Realm \
+    --author_url https://realm.io \
+    --github_url https://github.com/realm/realm-cocoa \
+    --github-file-prefix https://github.com/realm/realm-cocoa/tree/v0.96.2 \
+    --module-version 0.96.2 \
+    --build-tool-arguments -scheme,RealmSwift \
+    --module RealmSwift \
+    --root-url https://realm.io/docs/swift/0.96.2/api/ \
+    --output docs/swift_output \
+    --theme docs/themes
+  ```
+- Objective-C
+  ```
+  jazzy \
+    --objc \
+    --clean \
+    --author Realm \
+    --author_url https://realm.io \
+    --github_url https://github.com/realm/realm-cocoa \
+    --github-file-prefix https://github.com/realm/realm-cocoa/tree/v2.2.0 \
+    --module-version 2.2.0 \
+    --build-tool-arguments --objc,Realm/Realm.h,--,-x,objective-c,-isysroot,$(xcrun --show-sdk-path),-I,$(pwd) \
+    --module Realm \
+    --root-url https://realm.io/docs/objc/2.2.0/api/ \
+    --output docs/objc_output \
+    --head "$(cat docs/custom_head.html)"
+  ```
 
