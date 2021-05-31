@@ -47,7 +47,78 @@ Documentation 주석은 Markdown 규칙이 적용됩니다.
 - 헤더와 같은 큰 제목 표시는 `#`, `=`, `_` 로 표시합니다.
 - 링크와 이미지 모두 표기 가능하고 Xcode 에서 확인할 수 있습니다.
 
+## Documentation 구성
 
+### Summary
+
+해당 Documentation 주석에 요약을 작성할 수 있으며, Documentation 주석의 첫째 줄에 해당합니다.
+
+### Discussion
+
+Documentation 주석에 첫째 줄은 Summary 를 나타내지만 빈줄을 추가하여 두번째 단락은 자세한 설명에 해당합니다.
+
+```swift
+/// Summary
+///
+/// Discussion
+```
+
+### Parameters, Returns, Throws
+
+- Parameter
+
+  Parameter 이름으로 구성이 되며 파라미터에 대한 설명을 기입할 수 있습니다. Parameter 가 여러개인 경우 - Parameters: 를 추가하고 - 으로 구분하여 여러 파라미터를 입력할 수 있습니다.
+
+  ```swift
+  /// - Parameters:
+  ///		- param1: Description
+  ///		- param2: Description
+  ```
+
+- Returns
+
+  리턴하는 것에 대한 설명을 입력할 수 있습니다.
+
+- Throws
+
+  발생가능한 오류에 대해 입력할 수 있습니다.
+
+### 그 밖의 구성
+
+#### **Safety Information**
+
+- Precondition
+- Postcondition
+- Requires
+- Invariant
+- Complexity
+- Important
+- Warning
+
+#### **Metadata**
+
+- Author
+- Authors
+- Copyright
+- Date
+- SeeAlso
+- Since
+- Version
+
+#### **Notes**
+
+- Attention
+- Bug
+- Experiment
+- Note
+- Remark
+- ToDo
+
+### MARK, TODO, FIXME
+
+Section 을 나누기 위해 사용되며 시안성을 높이기 위해 사용됩니다. 주석을 작성하듯이 두 개의 슬래시 (`//`)  로 시작하여 작성되며 대시 (`-`) 를 추가하여 보기 쉽게 라인으로 구분되게 작성할 수도 있습니다.
+
+> 출처: [NSHipster](https://nshipster.com/swift-documentation/)
 
 ## Documentation Tools
 
