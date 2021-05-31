@@ -127,7 +127,72 @@ $ [sudo] gem install jazzy
 > ```jony```: [--theme jony](https://harshilshah.github.io/IGListKit/)
 
 #### Example
+```swift
+/// 일반 함수, 파라미터 포함 함수, 리턴이 있는 함수, 파라미터 리턴이 있는 함수를 포함한 class
+class Test {
+    
+    /// 일반 함수
+    func testFunction() {
+        
+    }
+    
+    /// 파라미터가 포함되어 있는 함수
+    /// - Parameter param: String 타입을 파라미터로 가집니다.
+    func testFunctionWithParam(param: String) {
+        
+    }
+    
+    /// 리턴이 있는 함수
+    /// - Returns: String 타입을 반환합니다.
+    func testFunctionWithReturn() -> String {
+        return ""
+    }
+    
+    /// 파라미터와 리턴이 있는 함수
+    /// - Parameter param: String 타입을 파라미터로 가집니다.
+    /// - Returns: String 타입을 반환합니다.
+    func testFunctionWithParamReturn(param: String) -> String {
+        return ""
+    }
+}
+```
+
+해당 예제를 기반으로 Documentation을 만들어 보도록 하겠습니다.
+
+```
+$ jazzy --clean --author Boram
+```
+
+위 Command 로 문서를 만들어 봅시다.
+
+<img src="https://github.com/bbiguduk/bbiguduk.github.io/blob/main/images/public_documentation.png?raw=true" alt="private Documentation" style="zoom:50%;" />
+
+JAZZY 는 기본적으로 public 만 문서화 하기 때문에 예제를 문서화 하면 아무런 내용도 나타나지 않습니다.
+
+```
+$ jazzy --clean --author Boram --min-acl private
+```
+
+위 Command 로 문서를 다시 만들어 봅시다.
+
+<img src="https://github.com/bbiguduk/bbiguduk.github.io/blob/main/images/private_documentation.png?raw=true" alt="private Documentation" style="zoom:50%;" />
+
+이제 모든 swift 소스에 대한 문서가 완성된 것을 확인할 수 있습니다. 근데 Documentation 주석을 작성하지 않은 소스도 문서화 되어 있는 것을 볼 수 있습니다. 이것을 생성하지 않으려면
+
+```
+$ jazzy --clean --author Boram --min-acl private --skip-undocumented
+```
+
+위 Command 를 실행하게 되면
+
+<img src="https://github.com/bbiguduk/bbiguduk.github.io/blob/main/images/skip_undocumentation.png?raw=true" alt="private Documentation" style="zoom:50%;" />
+
+이제 깔끔하게 내가 추가한 Documentation 주석 부분만 문서화 됨을 확인할 수 있습니다.
+
+아래는 Realm 에 나와 있는 Command line 예제이며 여러가지 [Option](https://github.com/realm/jazzy) 을 확인해 볼 수 있습니다.
+
 - Swift
+
   ```
   jazzy \
     --clean \
@@ -142,7 +207,9 @@ $ [sudo] gem install jazzy
     --output docs/swift_output \
     --theme docs/themes
   ```
+
 - Objective-C
+
   ```
   jazzy \
     --objc \
@@ -159,3 +226,4 @@ $ [sudo] gem install jazzy
     --head "$(cat docs/custom_head.html)"
   ```
 
+## 
