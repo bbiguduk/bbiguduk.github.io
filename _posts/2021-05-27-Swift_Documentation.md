@@ -240,6 +240,8 @@ $ jazzy --clean --author Boram
 
 JAZZY 는 기본적으로 public 만 문서화 하기 때문에 예제를 문서화 하면 아무런 내용도 나타나지 않습니다.
 
+> 기본적으로 public, open 접근제어자에 대해서만 문서가 생성이 되므로 강제로 접근제어자 변경이 필요합니다.
+
 ```
 $ jazzy --clean --author Boram --min-acl private
 ```
@@ -249,6 +251,8 @@ $ jazzy --clean --author Boram --min-acl private
 <img src="https://github.com/bbiguduk/bbiguduk.github.io/blob/main/images/private_documentation.png?raw=true" alt="private Documentation" style="zoom:50%;" />
 
 이제 모든 swift 소스에 대한 문서가 완성된 것을 확인할 수 있습니다. 근데 Documentation 주석을 작성하지 않은 소스도 문서화 되어 있는 것을 볼 수 있습니다. 이것을 생성하지 않으려면
+
+> 기본적으로 모든 파일에 대한 문서가 생성이 되므로 Documentation 주석이 없는 부분이 생성되지 않게 하려면 추가 옵션을 지정해 주어야 합니다.
 
 ```
 $ jazzy --clean --author Boram --min-acl private --skip-undocumented
