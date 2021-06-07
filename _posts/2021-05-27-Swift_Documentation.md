@@ -301,4 +301,42 @@ $ jazzy --clean --author Boram --min-acl private --skip-undocumented
     --head "$(cat docs/custom_head.html)"
   ```
 
-## 
+## Code Snippet
+
+Xcode 내에서 자신의 Code Snippet 을 만들 수 있습니다. Code Snippet 을 만들어 두면 자동완성 커맨드를 통해 바로 본문에 추가가 가능하여 좀 더 편리하게 Documentation 주석을 작성할 수 있게 됩니다.
+
+### Code Snippet 작성방법
+
+Code Snippet 을 추가하여 작성하도록 하게 할 경우 입력해야 될 필드를 표시할 수 있습니다. 이러한 표시는 `<#Name#>` 이런식으로 표기되며 아래 예제를 참고 바랍니다.
+
+```
+/**
+<#Summary#>
+
+- Parameters:
+  - <#Parameter Name#>: <#Parameter Description#>
+- Returns <#Return Name#>: <#Return Description#>
+*/
+```
+
+위와 같이 작성할 경우 Code Snippet 을 사용하여 추가할 경우 아래와 같이 나타납니다.
+
+![CodeSnippet Documentation](https://github.com/bbiguduk/bbiguduk.github.io/blob/main/images/CodeSnippet_Documentation.png?raw=true)
+
+### Code Snippet 추가하기
+
+추가할 Code Snippet 을 블럭을 설정 후 마우스 오른쪽 클릭을 하면 Create Code Snippet 이라는 메뉴가 보입니다.
+
+![Create Code Snippet](https://github.com/bbiguduk/bbiguduk.github.io/blob/main/images/CreateCodeSnippet.png?raw=true)
+
+Create Code Snippet 을 선택하여 메뉴를 들어오게 되면 아래와 같이 Code Snippet 이 추가되고 Code Snippet 의 이름과 Completion 을 작성할 수 있게 됩니다. Completion 은 코드상에서 자동완성을 위한 커맨드를 입력하면 됩니다.
+
+![Code Snippet Setting](https://github.com/bbiguduk/bbiguduk.github.io/blob/main/images/CodeSnippetSetting.png?raw=true)
+
+위와 같이 자동완성 커맨드를 `swift-documentation` 으로 해두고 `Done` 을 눌러 완료를 하면, 코드상에서 `swift-documentation` 이라 작성하면 아래와 같이 자동완성이 되어 나타남을 확인할 수 있습니다.
+
+![Use Code Snippet](https://github.com/bbiguduk/bbiguduk.github.io/blob/main/images/UseCodeSnippet.png?raw=true)
+
+### 추가한 Code Snippet 위치
+
+개인적으로 추가한 Code Snippet 은 `~/Library/Developer/Xcode/UserData/CodeSnippets/` 경로에 모두 저장됩니다. `xxx.codesnippet` 형식으로 저장이되며 해당 파일을 해당 경로에 복사하면 같은 Code Snippet 을 여럿이 사용할 수 있게 됩니다.
