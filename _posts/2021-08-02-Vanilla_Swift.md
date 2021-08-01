@@ -10,7 +10,7 @@ tags:
 
 우연히 회사 사람이 토스 채용공고에 `Vanilla Swift` 라는 용어가 나오는데 아는 사람 있냐는 질문을 받았습니다.
 
-<center><img src="/images/toss_job_ios.png" width="50%" height="50%"></center>
+<center><img src="/images/202108/toss_job_ios.PNG" width="50%" height="50%"></center>
 
 실제로 채용공고 중 `Vanilla Swift` 를 사용한다는 내용이 기재되어 있습니다.
 
