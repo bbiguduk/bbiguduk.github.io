@@ -313,4 +313,6 @@ Build 를 하게되면 기본적으로 `/Build/Products/Debug/ProjectName` 에 �
 
 위와 같이 파일이 잘 생성된 것을 확인할 수 있습니다.
 
+위에 작성한 코드는 [GitHub](https://github.com/bbiguduk/ResourceGenerator) 에 올려져 있습니다.
+
 감사합니다!
