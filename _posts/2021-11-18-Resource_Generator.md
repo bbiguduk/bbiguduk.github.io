@@ -305,7 +305,10 @@ Build 를 하게되면 기본적으로 `/Build/Products/Debug/ProjectName` 에 �
 
 ![AppRunScript](/images/AppRunScript.png)
 
-모듈을 빌드 해봅시다.
+앱을 빌드해 봅시다.
+> 빌드 시 권한 관련하여 에러가 발생한다면 권한을 추가해 줍시다.
+>
+> `$ chmod +x /PATH/ResourceGenerator`
 
 ![DomainImages](/images/DomainImages.png)
 
