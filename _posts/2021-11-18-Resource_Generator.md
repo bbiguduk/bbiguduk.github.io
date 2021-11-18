@@ -41,7 +41,7 @@ Image 나 Color 도 asset 으로 관리를 하게 되면 불러올 때 이름을
 
 ## String
 
-![Localizable](../assets/images/resourceGenerator/Localizable.png)
+![Localizable](/images/Localizable.png)
 
 기본적으로 `.strings` 을 보시면 위의 이미지와 같이 작성하도록 되어 있습니다.
 
@@ -49,33 +49,33 @@ Image 나 Color 도 asset 으로 관리를 하게 되면 불러올 때 이름을
 
 ## Image
 
-![Image](../assets/images/resourceGenerator/Image.png)
+![Image](/images/Image.png)
 
-`Images.xcassets` 을 보시면 2개의 이미지가 들어가 있는 것을 확인해 볼 수 있습니다. 좀 더 어떤 구조로 되어 있는지 확인하기 위해 Finder 에서 살펴 보도록 하겠습니다.
+`Images.xc/assets` 을 보시면 2개의 이미지가 들어가 있는 것을 확인해 볼 수 있습니다. 좀 더 어떤 구조로 되어 있는지 확인하기 위해 Finder 에서 살펴 보도록 하겠습니다.
 
 > Asset 이름은 꼭 Images 로 할 필요는 없습니다.
 
-![ImageAsset1](../assets/images/resourceGenerator/ImageAsset1.png)![ImageAsset2](../assets/images/resourceGenerator/ImageAsset2.png)
+![ImageAsset1](/images/ImageAsset1.png)![ImageAsset2](/images/ImageAsset2.png)
 
-`Images.xcassets` 폴더를 열어 보면 추가한 이미지들의 폴더가 보입니다. `이미지이름.imageset` 형식으로 되어 있으며, 이제 이 형식을 가지고 만들어 보도록 하겠습니다. 자세한 내용은 아래에서 더 다루도록 하겠습니다.
+`Images.xc/assets` 폴더를 열어 보면 추가한 이미지들의 폴더가 보입니다. `이미지이름.imageset` 형식으로 되어 있으며, 이제 이 형식을 가지고 만들어 보도록 하겠습니다. 자세한 내용은 아래에서 더 다루도록 하겠습니다.
 
 ## Color
 
-![Color](../assets/images/resourceGenerator/Color.png)
+![Color](/images/Color.png)
 
-`Colors.xcassets` 을 보시면 3개의 Color 가 들어가 있는 것을 확인할 수 있습니다. 좀 더 어떤 구조로 되어 있는지 확인하기 위해 Finder 에서 살펴 보도록 하겠습니다.
+`Colors.xc/assets` 을 보시면 3개의 Color 가 들어가 있는 것을 확인할 수 있습니다. 좀 더 어떤 구조로 되어 있는지 확인하기 위해 Finder 에서 살펴 보도록 하겠습니다.
 
 > Asset 이름은 꼭 Images 로 할 필요는 없습니다.
 
-![ColorAsset1](../assets/images/resourceGenerator/ColorAsset1.png)![ColorAsset2](../assets/images/resourceGenerator/ColorAsset2.png)
+![ColorAsset1](/images/ColorAsset1.png)![ColorAsset2](/images/ColorAsset2.png)
 
-`Colors.xcassets` 폴더를 열어 보면 추가한 Color 들의 폴더가 보입니다. `Color이름.colorset` 형식으로 되어 있으며, 이제 이 형식을 가지고 만들어 보도록 하겠습니다. 자세한 내용은 아래에서 더 다루도록 하겠습니다.
+`Colors.xc/assets` 폴더를 열어 보면 추가한 Color 들의 폴더가 보입니다. `Color이름.colorset` 형식으로 되어 있으며, 이제 이 형식을 가지고 만들어 보도록 하겠습니다. 자세한 내용은 아래에서 더 다루도록 하겠습니다.
 
 ## 프로젝트
 
 기본적으로 `./Script -param1 param1 -param2 param2 ....` 형식으로 작성하고 싶어 Xcode 에서 Command Line Tool 프로젝트로 생성하여 시작해 보도록 하겠습니다.
 
-![Project](../assets/images/resourceGenerator/NewProject.png)
+![Project](/images/NewProject.png)
 
 `./Script -param1 param1 -param2 param2 ....` 이 형식처럼 arguments 를 받으려면 보통은 `CommandLine.arguments` 를 사용하여 개발하지만, 제가 원하는 형식은 `-Key value` 형식이기 때문에 `UserDefaults` 를 확장하여 사용할 예정입니다.
 
@@ -84,7 +84,7 @@ Image 나 Color 도 asset 으로 관리를 하게 되면 불러올 때 이름을
 * type: String, Image, Color 중 변환이 필요한 타입을 받는 argument
 * path: 변환이 필요한 소스에 대한 path 를 지정합니다.
   * String: `.strings` 파일의 path
-  * Image, Color: `.xcassets` 파일의 path
+  * Image, Color: `.xc/assets` 파일의 path
 * output: 변환이 된 `.swift` 파일의 path 를 지정합니다.
 * enumName: auto complete 에 사용될 Enumeration 이름
 
@@ -141,7 +141,7 @@ extension FileManager {
         return result
     }
     
-    func assets(type: ResourceType, inAssetsPath path: String) throws -> [String]? {
+    func /assets(type: ResourceType, in/assetsPath path: String) throws -> [String]? {
         // let remove white spaces and dash from asset name. e.g My Image.imagesets, My-Image.imagesets into My_Image
         let normalize = { (asset: String) -> String in
             if let regex = try? NSRegularExpression(pattern: "\\s|-", options: .caseInsensitive){
@@ -154,7 +154,7 @@ extension FileManager {
         
         let subpaths = try subpathsOfDirectory(atPath: path)
         return subpaths.filter {
-                $0.hasSuffix(type.assets)
+                $0.hasSuffix(type./assets)
             }
             .map {
                 normalize(($0 as NSString).lastPathComponent.components(separatedBy: ".")[0])
@@ -257,7 +257,7 @@ print("\n\(resultStr) to generate resource manager file at \(output).\n")
 
 위와 같이 작성한 후 실행해 보면, 아래와 같이 `Strings.swift` 파일이 생성된 것을 확인할 수 있습니다.
 
-![Strings](../assets/images/resourceGenerator/Strings.png)
+![Strings](/images/Strings.png)
 
 해당 파일을 열어보면
 
@@ -291,11 +291,11 @@ enum Strings: String {
 
 Build 를 하게되면 기본적으로 `/Build/Products/Debug/ProjectName` 에 위치하지만 스크립트를 통해 빌드가 완료되면 결과물을 프로젝트 폴더로 복사 하도록 해봅시다.
 
-![BuildPhase](../assets/images/resourceGenerator/RunScript.png)
+![BuildPhase](/images/RunScript.png)
 
 빌드를 해봅시다.
 
-![BuildResult](../assets/images/resourceGenerator/BuildResult.png)
+![BuildResult](/images/BuildResult.png)
 
 실행가능한 파일이 생성된 것을 볼 수 있습니다.
 
@@ -303,13 +303,13 @@ Build 를 하게되면 기본적으로 `/Build/Products/Debug/ProjectName` 에 �
 
 > 저는 여기서 Image Resource 에 대한 것만 테스트 하였습니다.
 
-![AppRunScript](../assets/images/resourceGenerator/AppRunScript.png)
+![AppRunScript](/images/AppRunScript.png)
 
 모듈을 빌드 해봅시다.
 
-![DomainImages](../assets/images/resourceGenerator/DomainImages.png)
+![DomainImages](/images/DomainImages.png)
 
-![ImagesSwift](../assets/images/resourceGenerator/ImagesSwift.png)
+![ImagesSwift](/images/ImagesSwift.png)
 
 위와 같이 파일이 잘 생성된 것을 확인할 수 있습니다.
 
